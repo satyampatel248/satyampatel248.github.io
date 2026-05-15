@@ -5,139 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Satyam Patel | Portfolio</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#0b0f1a;color:#e2e8f0;}
-html{scroll-behavior:smooth;}
-.sidebar{background:#111827;border-right:1px solid #1f2937;width:100px;height:100vh;position:fixed;left:0;top:0;display:flex;flex-direction:column;align-items:center;padding:2rem 0;}
-.side-link{color:#64748b;font-size:.7rem;font-weight:800;text-transform:uppercase;margin-bottom:2rem;}
-.side-link:hover{color:#3b82f6;}
-.glass{background:rgba(31,41,55,.4);border:1px solid rgba(255,255,255,.05);border-radius:1.5rem;}
-.hero{background: radial-gradient(circle at top right, rgba(59,130,246,.1), transparent);}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color:#e2e8f0;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:55px;
+    font-weight:700;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero h2{
+    margin-top:15px;
+    font-weight:400;
+    color:#94a3b8;
+}
+
+.contact{
+    margin-top:15px;
+    color:#cbd5e1;
+}
+
+/* GLASS CARD */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 25px rgba(0,0,0,0.5);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 40px rgba(56,189,248,0.25);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+/* SKILLS */
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    background:linear-gradient(45deg,#38bdf8,#a78bfa);
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    margin-top:15px;
+    background:linear-gradient(45deg,#38bdf8,#a78bfa);
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#64748b;
+}
+
 </style>
 </head>
 
-<body class="pl-[100px] hero">
+<body>
 
-<!-- Sidebar -->
-<aside class="sidebar">
-<div class="mb-10 w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-white">SP</div>
-<a href="#about" class="side-link">ABOUT</a>
-<a href="#skills" class="side-link">SKILLS</a>
-<a href="#experience" class="side-link">WORK</a>
-<a href="#projects" class="side-link">PROJECTS</a>
-<a href="#contact" class="side-link">CONTACT</a>
-</aside>
-
-<main class="max-w-6xl mx-auto p-6 md:p-12">
-
-<!-- HERO -->
-<section id="about" class="text-center mb-20">
-<h1 class="text-5xl font-extrabold text-white mb-4">Satyam Patel</h1>
-<p class="text-xl text-blue-500 font-bold mb-6" id="typing"></p>
-
-<p class="max-w-3xl mx-auto text-slate-400 leading-relaxed">
-Experienced software specialist with a proven track record at eClinicalWorks, adept in implementing interfaces and driving software testing initiatives. Skilled in HL7 standards and both manual and functional testing, with expertise in Java, Python, JavaScript, JSP, C++, MySQL and MSSQL. Dedicated to enhancing software quality and healthcare interoperability.
-</p>
-
-<div class="mt-8 flex justify-center gap-4">
-<a href="Resume.pdf" class="bg-blue-600 px-6 py-3 rounded-xl font-bold">Download Resume</a>
-<a href="mailto:satyampatel2748@gmail.com" class="border border-blue-500 px-6 py-3 rounded-xl">Hire Me</a>
-</div>
-
-<p class="mt-6 text-slate-500">📞 +91-7582829394 • Ahmedabad, India</p>
+<section class="hero">
+    <h1>Satyam Patel</h1>
+    <h2>HL7 / FHIR Specialist • Software Tester • Interface Engineer</h2>
+    <p class="contact">📞 +91 7582829394 | 📧 satyampatel2748@gmail.com</p>
+    <a href="Resume.pdf" class="btn" target="_blank">📄 Download Resume</a>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="mb-20">
-<h2 class="text-3xl font-bold mb-10 text-center">Technical Skills</h2>
-<div class="grid md:grid-cols-2 gap-6">
-<div class="glass p-6">
-<h3 class="font-bold text-blue-400 mb-2">Software Development & Testing</h3>
-<p>Manual testing, functional testing, QA, software engineering.</p>
-</div>
-<div class="glass p-6">
-<h3 class="font-bold text-blue-400 mb-2">Technologies</h3>
-<p>HL7, Apache Tomcat, JSP, JavaScript.</p>
-</div>
-<div class="glass p-6">
-<h3 class="font-bold text-blue-400 mb-2">Databases & Languages</h3>
-<p>MySQL, MSSQL, Java, Python, C, C++.</p>
-</div>
-<div class="glass p-6">
-<h3 class="font-bold text-blue-400 mb-2">Soft Skills</h3>
-<p>Communication, teamwork & collaboration.</p>
-</div>
-</div>
-</section>
+<div class="container">
 
-<!-- EXPERIENCE -->
-<section id="experience" class="mb-20">
-<h2 class="text-3xl font-bold mb-10">Work Experience</h2>
-<div class="glass p-8">
-<h3 class="text-xl font-bold">eClinicalWorks Pvt. Ltd. — Software Specialist</h3>
-<p class="text-blue-400 mb-4">Oct 2021 – Present • Ahmedabad</p>
-<ul class="space-y-2 text-slate-400">
-<li>✔ Deploy healthcare interfaces for interoperability</li>
-<li>✔ Monitor healthcare data for quality & compliance</li>
-<li>✔ Manage software patch deployments</li>
-<li>✔ Provide client support & training</li>
-<li>✔ Collaborate with dev, QA & success teams</li>
-</ul>
+    <div class="card">
+        <h2>👨‍💻 About Me</h2>
+        <p>
+Experienced software specialist at eClinicalWorks skilled in HL7 interfaces, healthcare interoperability, 
+manual & functional testing, and database management. Passionate about building reliable healthcare tech.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🚀 Technical Skills</h2>
+        <div class="skills">
+            <div class="skill">HL7</div>
+            <div class="skill">FHIR</div>
+            <div class="skill">Manual Testing</div>
+            <div class="skill">Regression Testing</div>
+            <div class="skill">Java</div>
+            <div class="skill">Python</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">JSP</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">MSSQL</div>
+            <div class="skill">Tomcat</div>
+            <div class="skill">Mirth</div>
+            <div class="skill">Postman</div>
+            <div class="skill">JIRA</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>💼 Work Experience</h2>
+        <h3>eClinicalWorks — Software Specialist (2021–Present)</h3>
+        <ul>
+            <li>Implemented HL7 healthcare interfaces</li>
+            <li>Monitored immunization & surveillance data</li>
+            <li>Deployed software updates & patches</li>
+            <li>Worked with healthcare providers & vendors</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📊 Major Projects</h2>
+        <ul>
+            <li>Immunization Registry Interfaces</li>
+            <li>Syndromic Surveillance Monitoring</li>
+            <li>Vendor Onboarding Systems</li>
+            <li>Vaccine Vending Machine Integration</li>
+            <li>Health Information Exchange (HIE)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🎓 Education</h2>
+        <p>B.Tech Computer Science Engineering</p>
+        <p>Shri Ram Institute of Technology, Jabalpur</p>
+        <p>CGPA: 7.91</p>
+    </div>
+
 </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects" class="mb-20">
-<h2 class="text-3xl font-bold mb-10">Key Projects</h2>
-<div class="grid md:grid-cols-2 gap-6">
-
-<div class="glass p-6"><b>Immunization Interface</b><p>Registry integrations & vaccine data monitoring.</p></div>
-<div class="glass p-6"><b>Syndromic Surveillance</b><p>Real-time disease pattern monitoring.</p></div>
-<div class="glass p-6"><b>Vaccine Management System</b><p>Vaccine vending interface deployment.</p></div>
-<div class="glass p-6"><b>Health Information Exchange</b><p>Provider data sharing & interoperability.</p></div>
-
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section class="mb-20">
-<h2 class="text-3xl font-bold mb-6">Education</h2>
-<div class="glass p-6">
-B.Tech Computer Science — Shri Ram Institute of Technology<br>
-CGPA: 7.91/10
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="text-center mb-20">
-<h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-<div class="flex justify-center gap-6 text-3xl">
-<a href="https://github.com/satyampatel248"><i class="fab fa-github"></i></a>
-<a href="https://linkedin.com/in/satyam-patel-60bbb0221"><i class="fab fa-linkedin text-blue-500"></i></a>
-<a href="mailto:satyampatel2748@gmail.com"><i class="fas fa-envelope text-red-500"></i></a>
-</div>
-</section>
-
-</main>
-
-<footer class="py-10 text-center text-slate-600">© 2026 Satyam Patel</footer>
-
-<script>
-const text=["HL7 Specialist","Software Tester","Interface Engineer","Healthcare Tech Expert"];
-let count=0,index=0,currentText='',letter='';
-(function type(){
-if(count===text.length){count=0;}
-currentText=text[count];
-letter=currentText.slice(0,++index);
-document.getElementById('typing').textContent=letter;
-if(letter.length===currentText.length){count++;index=0;setTimeout(type,1500);}
-else{setTimeout(type,80);}
-})();
-</script>
+<footer>
+Made with ❤️ by Satyam Patel
+</footer>
 
 </body>
 </html>
