@@ -4,134 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyam Patel | Software Specialist</title>
-    
-    <!-- Libraries -->
     <script src="https://tailwindcss.com"></script>
     <link href="https://unpkg.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
     <script src="https://unpkg.com"></script>
-
     <style>
-        html { scroll-behavior: smooth; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); }
-        .card-gradient { background: linear-gradient(145deg, #1e293b, #0f172a); }
+        @import url('https://googleapis.com');
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050505; }
+        .neon-text { text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; }
+        .glass-card:hover { background: rgba(255, 255, 255, 0.07); border-color: #3b82f6; transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .gradient-bg { background: radial-gradient(circle at 50% 50%, #1e1e2e 0%, #050505 100%); }
+        .animated-gradient { background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #2dd4bf); background-size: 400% 400%; animation: gradient 15s ease infinite; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @keyframes gradient { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans">
+<body class="text-slate-200 overflow-x-hidden gradient-bg">
 
-    <!-- Navigation -->
-    <nav class="p-6 flex justify-between items-center fixed w-full glass z-50 border-b border-slate-800">
-        <h1 class="text-2xl font-bold text-blue-400">SP<span class="text-white">.</span></h1>
-        <div class="hidden md:flex space-x-8 font-medium">
-            <a href="#about" class="hover:text-blue-400 transition">About</a>
-            <a href="#experience" class="hover:text-blue-400 transition">Work</a>
-            <a href="#education" class="hover:text-blue-400 transition">Education</a>
-            <button onclick="toggleModal()" class="text-blue-400 border border-blue-400 px-5 py-1 rounded-full hover:bg-blue-400 hover:text-white transition">Contact</button>
+    <!-- Glowing Background Orbs -->
+    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] z-0"></div>
+
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-3 rounded-2xl">
+            <span class="text-2xl font-bold tracking-tighter neon-text">SP<span class="text-blue-500">.</span></span>
+            <div class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-widest">
+                <a href="#work" class="hover:text-blue-400 transition">Experience</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Tech Stack</a>
+                <a href="#edu" class="hover:text-blue-400 transition">Education</a>
+            </div>
+            <button onclick="toggleModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl text-sm font-bold transition shadow-lg shadow-blue-600/20">Connect</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="about" class="h-screen flex flex-col justify-center items-center text-center px-4 relative">
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]"></div>
-        <h2 data-aos="zoom-out" class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight">Satyam Patel</h2>
-        <p data-aos="fade-up" data-aos-delay="300" class="text-xl md:text-3xl text-slate-400">
-            I am a <span id="typed" class="text-blue-400 font-bold"></span>
-        </p>
-        <div data-aos="fade-up" data-aos-delay="600" class="mt-12 flex gap-4">
-            <a href="#experience" class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-bold transition shadow-lg shadow-blue-600/20">Portfolio</a>
-            <button onclick="toggleModal()" class="bg-slate-800 px-8 py-4 rounded-xl font-bold border border-slate-700 hover:bg-slate-700 transition">Hire Me</button>
+    <!-- Hero -->
+    <section class="h-screen flex flex-col justify-center items-center relative z-10 px-6">
+        <div data-aos="fade-down" class="inline-block px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">Available for Projects</div>
+        <h1 data-aos="zoom-out" class="text-6xl md:text-9xl font-bold tracking-tighter text-center mb-6">
+            Satyam <span class="animated-gradient">Patel</span>
+        </h1>
+        <div data-aos="fade-up" data-aos-delay="200" class="text-2xl md:text-4xl font-light text-slate-400 h-12">
+            I'm a <span id="typed" class="text-white border-b-4 border-blue-600"></span>
         </div>
-    </header>
-
-    <!-- Awards Section (New) -->
-    <section class="py-20 px-6 max-w-5xl mx-auto">
-        <div data-aos="fade-right" class="bg-blue-600/10 border border-blue-500/30 p-8 rounded-3xl flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-blue-900/20">
-            <div class="text-5xl text-yellow-400"><i class="fas fa-trophy"></i></div>
-            <div>
-                <h3 class="text-2xl font-bold">All Star Award — <span class="text-blue-400 text-lg italic">04/2026</span></h3>
-                <p class="text-slate-300 mt-2">Honored by <b>eClinicalWorks</b> for maintaining highest software quality standards and zero-critical-failure deployments across multiple immunization registry projects.</p>
-            </div>
+        <div class="mt-12 flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="400">
+            <a href="#work" class="px-10 py-4 bg-white text-black font-bold rounded-2xl hover:scale-105 transition shadow-xl">Explore My Work</a>
+            <a href="https://linkedin.com" target="_blank" class="px-10 py-4 glass-card font-bold rounded-2xl hover:bg-white/10 transition flex items-center gap-2">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
         </div>
     </section>
 
-    <!-- Experience & Education (New) -->
-    <section id="experience" class="py-20 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
-        <!-- Work column -->
-        <div>
-            <h3 class="text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">Work Experience</h3>
-            <div class="space-y-12">
-                <div data-aos="fade-up" class="relative pl-6 border-l border-slate-700">
-                    <div class="absolute -left-1.5 top-0 w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <h4 class="text-xl font-bold">Software Specialist</h4>
-                    <p class="text-blue-400 font-mono text-sm">eClinicalWorks | 2021 — Present</p>
-                    <p class="text-slate-400 mt-3 text-sm">Led HIE implementation and Vaccine Management systems ensuring 100% compliance with HL7 standards.</p>
+    <!-- Work Experience -->
+    <section id="work" class="py-32 max-w-7xl mx-auto px-6 relative z-10">
+        <h2 class="text-4xl md:text-6xl font-bold mb-20 tracking-tight" data-aos="fade-right">Professional <br><span class="text-blue-500 italic">Journey</span></h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-10 rounded-3xl group" data-aos="fade-up">
+                <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-600/40 group-hover:rotate-12 transition">
+                    <i class="fas fa-hospital-user text-2xl"></i>
+                </div>
+                <h3 class="text-3xl font-bold mb-2">Software Specialist</h3>
+                <p class="text-blue-400 font-mono mb-6 uppercase tracking-wider text-sm">eClinicalWorks | 2021 — PRESENT</p>
+                <p class="text-slate-400 leading-relaxed">Pioneering healthcare interoperability via HIE implementations and automated vaccine management systems. Expertly managing HL7 standards with 100% compliance.</p>
+            </div>
+            
+            <div class="flex flex-col gap-8">
+                <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">Project: Vaccine Management</h4>
+                    <p class="text-sm text-slate-400">Integrated dispensing interfaces with vending tech for real-time inventory.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold text-blue-400 mb-2">Project: Syndromic Surveillance</h4>
+                    <p class="text-sm text-slate-400">Real-time pattern analysis for early disease detection across vendor systems.</p>
                 </div>
             </div>
         </div>
-
-        <!-- Education column (New) -->
-        <div id="education">
-            <h3 class="text-3xl font-bold mb-10 border-l-4 border-blue-500 pl-4">Education</h3>
-            <div data-aos="fade-up" class="relative pl-6 border-l border-slate-700">
-                <div class="absolute -left-1.5 top-0 w-3 h-3 bg-blue-500 rounded-full"></div>
-                <h4 class="text-xl font-bold">Bachelor of Technology</h4>
-                <p class="text-blue-400 font-mono text-sm">CSE | 2017 — 2021</p>
-                <p class="text-slate-300 mt-2 font-semibold italic">Shri Ram Institute of Technology</p>
-                <p class="text-slate-400 mt-1">7.91/10 CGPA | Jabalpur, MP</p>
-            </div>
-        </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-950/50 border-y border-slate-800">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h3 class="text-3xl font-bold mb-12">Technical Toolkit</h3>
+    <!-- Tech Stack Grid -->
+    <section id="skills" class="py-32 bg-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4" data-aos="fade-up">The Tech Stack</h2>
+                <p class="text-slate-400" data-aos="fade-up" data-aos-delay="100">Tools and languages I use to build robust software.</p>
+            </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div data-aos="zoom-in" class="p-6 card-gradient rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fab fa-java text-4xl mb-3 text-orange-400"></i>
-                    <p class="font-semibold">Java</p>
+                <!-- Skill Item -->
+                <div data-aos="zoom-in" class="glass-card p-8 rounded-2xl text-center group">
+                    <i class="fab fa-java text-5xl mb-4 text-orange-500 group-hover:drop-shadow-[0_0_10px_rgba(249,115,22,0.5)]"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">Java</p>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="100" class="p-6 card-gradient rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fab fa-python text-4xl mb-3 text-yellow-400"></i>
-                    <p class="font-semibold">Python</p>
+                <div data-aos="zoom-in" data-aos-delay="100" class="glass-card p-8 rounded-2xl text-center group">
+                    <i class="fab fa-python text-5xl mb-4 text-yellow-400 group-hover:drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">Python</p>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="200" class="p-6 card-gradient rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fas fa-file-medical text-4xl mb-3 text-green-400"></i>
-                    <p class="font-semibold">HL7 / Interop</p>
+                <div data-aos="zoom-in" data-aos-delay="200" class="glass-card p-8 rounded-2xl text-center group">
+                    <i class="fas fa-database text-5xl mb-4 text-blue-400 group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">MySQL / MSSQL</p>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="300" class="p-6 card-gradient rounded-2xl border border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fas fa-shield-virus text-4xl mb-3 text-blue-400"></i>
-                    <p class="font-semibold">QA Testing</p>
+                <div data-aos="zoom-in" data-aos-delay="300" class="glass-card p-8 rounded-2xl text-center group">
+                    <i class="fas fa-vial text-5xl mb-4 text-emerald-400 group-hover:drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]"></i>
+                    <p class="font-bold uppercase tracking-widest text-xs">QA Testing</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modal remains the same as previous -->
-    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md px-4">
-        <div class="bg-slate-800 p-8 rounded-3xl w-full max-w-lg relative border border-slate-700 shadow-2xl">
+    <!-- Education & Awards -->
+    <section id="edu" class="py-32 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 gap-16">
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-bold mb-10">Education</h2>
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold">B.Tech in Computer Science</h3>
+                    <p class="text-blue-400">Shri Ram Institute of Technology</p>
+                    <p class="text-sm text-slate-500 mt-2">2017 — 2021 | CGPA: 7.91/10</p>
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="text-4xl font-bold mb-10">Awards</h2>
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-yellow-500">
+                    <h3 class="text-xl font-bold">All Star Award</h3>
+                    <p class="text-yellow-500 italic text-sm mb-2">eClinicalWorks PVT LTD</p>
+                    <p class="text-slate-400 text-sm">Honored for maintaining highest software quality and zero-failure deployments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal (Glassmorphism) -->
+    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl px-4">
+        <div class="glass-card p-10 rounded-[2rem] w-full max-w-lg relative">
             <button onclick="toggleModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white text-3xl">&times;</button>
-            <h3 class="text-2xl font-bold mb-6">Send Message</h3>
-            <form action="#" method="POST" class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:ring-1 focus:ring-blue-500">
-                <textarea placeholder="Message" rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 outline-none focus:ring-1 focus:ring-blue-500"></textarea>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-bold transition">Send</button>
+            <h3 class="text-4xl font-bold mb-2">Start a <span class="text-blue-500">Project</span></h3>
+            <p class="text-slate-400 mb-8">Let's discuss how I can help your team.</p>
+            <form action="https://formspree.io" method="POST" class="space-y-6">
+                <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 outline-none transition">
+                <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 outline-none transition">
+                <textarea name="message" placeholder="What's on your mind?" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 focus:border-blue-500 outline-none transition"></textarea>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-blue-600/30">Initiate Contact</button>
             </form>
         </div>
     </div>
 
-    <footer class="py-12 text-center text-slate-500">
-        <p>© 2024 Satyam Patel</p>
+    <!-- Footer -->
+    <footer class="py-20 text-center border-t border-white/5">
+        <p class="text-slate-500 text-sm tracking-widest uppercase">© 2024 Satyam Patel — Crafted for Quality</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        AOS.init({ duration: 1000, once: true });
         new Typed('#typed', {
-            strings: ['Software Specialist.', 'QA Engineer.', 'HL7 Expert.'],
-            typeSpeed: 50, backSpeed: 30, loop: true
+            strings: ['Software Specialist.', 'QA Expert.', 'System Architect.', 'Healthcare Innovator.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
         });
-        function toggleModal() { document.getElementById('contactModal').classList.toggle('hidden'); }
+        function toggleModal() {
+            document.getElementById('contactModal').classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
