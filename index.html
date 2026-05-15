@@ -3,130 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satyam Patel | Portfolio</title>
+    <title>Satyam Patel | Software Specialist Dashboard</title>
     <script src="https://tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cloudflare.com">
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #f8fafc; }
-        .sidebar { background-color: #1e293b; width: 80px; height: 100vh; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; padding: 2rem 0; border-right: 1px solid rgba(255,255,255,0.05); }
-        .card { background-color: #1e293b; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.05); }
-        .nav-item { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; font-size: 0.65rem; color: #94a3b8; transition: 0.3s; margin-bottom: 2rem; cursor: pointer; }
-        .nav-item:hover, .nav-item.active { color: #f43f5e; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #1e293b; outline: 2px solid #334155; margin-top: -60px; }
-        .btn-primary { background-color: #334155; border: 1px solid #475569; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; transition: 0.3s; display: inline-flex; items-center; gap: 0.5rem; }
-        .btn-primary:hover { background-color: #475569; transform: translateY(-2px); }
-        .hire-me { background-color: #f43f5e; color: white; padding: 0.5rem 1.5rem; border-radius: 9999px; font-weight: 600; font-size: 0.875rem; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f1a; color: #e2e8f0; }
+        .sidebar { background: #111827; border-right: 1px solid #1f2937; width: 100px; height: 100vh; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; padding: 2rem 0; z-index: 50; }
+        .side-link { color: #64748b; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; transition: 0.3s; cursor: pointer; }
+        .side-link:hover { color: #3b82f6; }
+        .glass-card { background: rgba(31, 41, 55, 0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.5rem; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glass-card:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 20px 40px -20px rgba(59, 130, 246, 0.2); }
+        .tag { background: #1e293b; color: #3b82f6; padding: 4px 12px; border-radius: 99px; font-size: 0.7rem; font-weight: 700; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .hero-gradient { background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body class="pl-20">
+<body class="pl-[100px] hero-gradient">
 
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar z-50">
-        <div class="mb-10 text-2xl font-bold text-slate-400"><i class="fas fa-bars"></i></div>
-        <div class="nav-item active">
-            <i class="fas fa-user text-xl"></i>
-            <span class="font-bold uppercase tracking-tighter">About</span>
-        </div>
-        <div class="nav-item">
-            <i class="fas fa-briefcase text-xl"></i>
-            <span class="font-bold uppercase tracking-tighter">Projects</span>
-        </div>
-        <div class="nav-item">
-            <i class="fas fa-file-alt text-xl"></i>
-            <span class="font-bold uppercase tracking-tighter">Resume</span>
-        </div>
-        <div class="nav-item mt-auto">
-            <i class="fas fa-comment-dots text-xl"></i>
-            <span class="font-bold uppercase tracking-tighter">Contact</span>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="mb-12"><div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-blue-600/30">SP</div></div>
+        <a href="#about" class="side-link"><i class="fas fa-home text-xl"></i><span>Home</span></a>
+        <a href="#work" class="side-link"><i class="fas fa-project-diagram text-xl"></i><span>Work</span></a>
+        <a href="#skills" class="side-link"><i class="fas fa-code text-xl"></i><span>Stack</span></a>
+        <a href="#education" class="side-link"><i class="fas fa-graduation-cap text-xl"></i><span>Edu</span></a>
+        <div class="mt-auto flex flex-col gap-4 text-slate-500">
+            <a href="https://linkedin.com" class="hover:text-blue-400"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="mailto:satyampatel2748@gmail.com" class="hover:text-blue-400"><i class="fas fa-envelope text-xl"></i></a>
         </div>
     </aside>
 
-    <!-- Top Bar -->
-    <nav class="max-w-6xl mx-auto p-6 flex justify-end items-center gap-6">
-        <div class="flex gap-4 text-slate-400 text-lg">
-            <a href="https://linkedin.com" target="_blank" class="hover:text-white"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com" target="_blank" class="hover:text-white"><i class="fab fa-github"></i></a>
-        </div>
-        <button class="hire-me hover:bg-rose-600 transition">Hire Me</button>
-    </nav>
-
-    <!-- Main Wrapper -->
-    <div class="max-w-5xl mx-auto px-6 pb-20">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto p-6 md:p-12">
         
-        <!-- Hero Profile Card -->
-        <header class="card mt-20 p-10 text-center flex flex-col items-center">
-            <img src="https://ui-avatars.com" alt="Profile" class="profile-img bg-slate-700">
-            <h1 class="text-4xl font-bold mt-6">Satyam Patel</h1>
-            <p class="text-slate-400 mt-4 max-w-2xl text-lg">
-                Hi! I'm a <span class="text-white font-semibold">Software Specialist</span> with 4.5+ years of experience in healthcare interoperability. 
-                I specialize in HL7 standards, end-to-end testing, and ensuring high-quality data flows at <span class="text-white font-semibold">eClinicalWorks</span>.
-            </p>
-            <div class="mt-8">
-                <a href="#" class="btn-primary">
-                    View Resume <i class="fas fa-arrow-right text-xs"></i>
-                </a>
+        <!-- Header Row -->
+        <div class="flex justify-between items-center mb-16" id="about">
+            <div>
+                <h1 class="text-4xl font-800 tracking-tight text-white mb-2">Satyam Patel</h1>
+                <p class="text-blue-500 font-bold uppercase tracking-widest text-sm">Software Specialist @ eClinicalWorks</p>
             </div>
-        </header>
+            <button onclick="window.location.href='mailto:satyampatel2748@gmail.com'" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-2xl font-bold transition shadow-lg shadow-blue-600/20">Hire Me</button>
+        </div>
 
-        <!-- Featured Projects Section -->
-        <section class="mt-20">
-            <h2 class="text-3xl font-bold text-center mb-4">Featured Projects</h2>
-            <p class="text-slate-400 text-center mb-12 max-w-xl mx-auto">Selected works demonstrating my expertise in software quality and system implementation.</p>
+        <!-- Profile Section -->
+        <div class="glass-card p-10 mb-12 flex flex-col md:flex-row gap-10 items-center">
+            <div class="w-48 h-48 rounded-3xl bg-slate-800 flex-shrink-0 flex items-center justify-center border-2 border-slate-700">
+                <i class="fas fa-user-tie text-7xl text-slate-600"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-white underline decoration-blue-600 decoration-4 underline-offset-8">Executive Summary</h2>
+                <p class="text-slate-400 leading-relaxed text-lg">
+                    Software specialist with 4.5+ years of experience at <span class="text-white font-semibold">eClinicalWorks</span>. Expert in implementing complex clinical interfaces and driving high-stakes software testing. Skilled in <span class="text-white font-semibold">HL7 standards</span> and full-cycle testing within Tomcat environments. Dedicated to enhancing software quality and streamlining public health data flows.
+                </p>
+            </div>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="grid lg:grid-cols-2 gap-8 items-start" id="work">
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="card overflow-hidden group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center p-12 group-hover:bg-slate-700 transition">
-                        <i class="fas fa-network-wired text-6xl text-slate-600"></i>
+            <!-- Left: Work Experience -->
+            <div class="space-y-8">
+                <h3 class="text-xl font-bold text-white flex items-center gap-3"><i class="fas fa-briefcase text-blue-500"></i> Professional Journey</h3>
+                
+                <div class="glass-card p-8">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-white">eClinicalWorks Pvt. Ltd.</h4>
+                            <p class="text-blue-400 text-sm font-bold">Oct 2021 — Present</p>
+                        </div>
+                        <span class="tag">Active</span>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2">HIE Implementation</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Developing interfaces for real-time patient information exchange. Ensuring HL7 compliance across multi-vendor networks.</p>
-                    </div>
+                    <ul class="space-y-5 text-slate-400 text-sm">
+                        <li class="flex gap-3"><i class="fas fa-circle-check text-blue-600 mt-1"></i> <b>Interface Implementation:</b> Coordinate and deploy complex software interfaces facilitating interoperability across clinical workflows.</li>
+                        <li class="flex gap-3"><i class="fas fa-circle-check text-blue-600 mt-1"></i> <b>Data Quality Assurance:</b> Vigilantly monitor extensive healthcare streams to ensure accuracy and compliance with 100% industry standards.</li>
+                        <li class="flex gap-3"><i class="fas fa-circle-check text-blue-600 mt-1"></i> <b>Strategic Deployment:</b> Manage rollouts of critical patches and security updates with zero disruption to healthcare providers.</li>
+                        <li class="flex gap-3"><i class="fas fa-circle-check text-blue-600 mt-1"></i> <b>Cross-Functional Alignment:</b> Collaborate with Dev and Customer Success teams to align implementations with client needs.</li>
+                    </ul>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="card overflow-hidden group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center p-12 group-hover:bg-slate-700 transition">
-                        <i class="fas fa-syringe text-6xl text-slate-600"></i>
+                <!-- Awards & Education -->
+                <div class="grid grid-cols-2 gap-4" id="education">
+                    <div class="glass-card p-6 border-l-4 border-yellow-500">
+                        <i class="fas fa-award text-yellow-500 mb-3 text-2xl"></i>
+                        <h4 class="font-bold text-white">All Star Award</h4>
+                        <p class="text-xs text-slate-500 mt-1 italic">Recognized for zero-failure deployments.</p>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2">Vaccine Vending Interface</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Pioneered hardware integration for automated vaccine dispensing and real-time inventory management.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="card overflow-hidden group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center p-12 group-hover:bg-slate-700 transition">
-                        <i class="fas fa-database text-6xl text-slate-600"></i>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2">Syndromic Monitoring</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Real-time health pattern analysis for early disease detection across large vendor ecosystems.</p>
+                    <div class="glass-card p-6 border-l-4 border-blue-500">
+                        <i class="fas fa-graduation-cap text-blue-500 mb-3 text-2xl"></i>
+                        <h4 class="font-bold text-white">B.Tech in CSE</h4>
+                        <p class="text-xs text-slate-500 mt-1 font-bold">7.91/10 CGPA</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Project 4 -->
-                <div class="card overflow-hidden group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center p-12 group-hover:bg-slate-700 transition">
-                        <i class="fas fa-award text-6xl text-slate-600"></i>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-xl font-bold mb-2">All Star Award (2026)</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Recognized for maintaining zero critical failures in large-scale immunization data deployments.</p>
-                    </div>
+            <!-- Right: Detailed Projects -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-white flex items-center gap-3"><i class="fas fa-rocket text-purple-500"></i> Featured Deployments</h3>
+                
+                <div class="glass-card p-6 hover:bg-slate-800/50">
+                    <h4 class="font-bold text-white mb-2">HIE Implementation <span class="text-slate-500 text-xs font-normal">/ 2025</span></h4>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-3">Developing interfaces for seamless data sharing between providers and vendors, promoting patient care coordination.</p>
+                    <div class="flex gap-2"><span class="tag">Interoperability</span><span class="tag">Standards</span></div>
+                </div>
+
+                <div class="glass-card p-6 hover:bg-slate-800/50">
+                    <h4 class="font-bold text-white mb-2">Vaccine Management System <span class="text-slate-500 text-xs font-normal">/ 2024</span></h4>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-3">Leading the rollout of a dispensing interface integrated with vending machines for secure, on-demand vaccine access.</p>
+                    <div class="flex gap-2"><span class="tag">IoT</span><span class="tag">Inventory</span></div>
+                </div>
+
+                <div class="glass-card p-6 hover:bg-slate-800/50">
+                    <h4 class="font-bold text-white mb-2">Syndromic Surveillance <span class="text-slate-500 text-xs font-normal">/ 2022</span></h4>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-3">Early detection of disease patterns through real-time data analysis and complex vendor maintenance.</p>
+                    <div class="flex gap-2"><span class="tag">Surveillance</span><span class="tag">Scale</span></div>
+                </div>
+
+                <div class="glass-card p-6 hover:bg-slate-800/50">
+                    <h4 class="font-bold text-white mb-2">Immunization Interface <span class="text-slate-500 text-xs font-normal">/ 2021</span></h4>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-3">Spearheading design for vaccine data flow monitoring to safeguard integrity and maintain public health services.</p>
+                    <div class="flex gap-2"><span class="tag">Integrity</span><span class="tag">Healthcare</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <section class="mt-20 mb-20" id="skills">
+            <h3 class="text-2xl font-bold text-white mb-10 text-center">Technical Toolkit</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 text-center">
+                    <i class="fab fa-java text-4xl text-blue-500 mb-4"></i>
+                    <h5 class="font-bold text-white">Java & JS</h5>
+                    <p class="text-xs text-slate-500 mt-2">Enterprise Dev</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <i class="fas fa-microchip text-4xl text-purple-500 mb-4"></i>
+                    <h5 class="font-bold text-white">HL7 Standards</h5>
+                    <p class="text-xs text-slate-500 mt-2">Interoperability</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <i class="fas fa-database text-4xl text-green-500 mb-4"></i>
+                    <h5 class="font-bold text-white">MySQL / MSSQL</h5>
+                    <p class="text-xs text-slate-500 mt-2">Data Management</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <i class="fas fa-bug text-4xl text-red-500 mb-4"></i>
+                    <h5 class="font-bold text-white">Manual & Func</h5>
+                    <p class="text-xs text-slate-500 mt-2">Quality Control</p>
                 </div>
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <!-- Simple Footer -->
-    <footer class="text-center py-10 text-slate-500 text-sm border-t border-white/5 mx-6">
-        &copy; 2026 Satyam Patel / Software Specialist
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-xs uppercase tracking-widest">
+        Satyam Patel &bull; Software Specialist &bull; 2026 Build
     </footer>
+
+    <script>
+        // Smooth scroll implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
