@@ -3,189 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satyam Patel | Software Specialist</title>
+    <title>Satyam Patel | Senior Software Specialist</title>
     
-    <!-- External Libraries -->
+    <!-- Robust Styling Assets -->
     <script src="https://tailwindcss.com"></script>
-    <link href="https://unpkg.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cloudflare.com">
-    <script src="https://unpkg.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
-        @import url('https://googleapis.com');
+        :root { --accent: #3b82f6; --bg: #030712; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: #f3f4f6; scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
         
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #020617; /* Solid fallback */
-            color: #f8fafc;
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Animated Background Blobs */
-        .blob {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: rgba(59, 130, 246, 0.15);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: -1;
-            animation: float 20s infinite alternate;
-        }
-
-        @keyframes float {
-            from { transform: translate(0, 0); }
-            to { transform: translate(100px, 100px); }
-        }
+        /* High-End Glass Effects */
+        .glass { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+        .glass-hover:hover { border-color: var(--accent); background: rgba(30, 41, 59, 0.5); transform: translateY(-8px); transition: all 0.4s ease; }
+        
+        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-glow { position: absolute; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%); z-index: -1; }
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <div class="blob top-0 -left-20"></div>
-    <div class="blob bottom-0 -right-20" style="background: rgba(168, 85, 247, 0.1);"></div>
+    <div class="hero-glow top-[-10%] left-[-10%]"></div>
+    <div class="hero-glow bottom-[-10%] right-[-10%]" style="background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 70%);"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-6 py-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-6 py-3 rounded-2xl">
-            <span class="text-xl font-extrabold tracking-tighter">SATYAM<span class="text-blue-500">.</span></span>
-            <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-slate-400">
-                <a href="#work" class="hover:text-white transition">Work</a>
-                <a href="#skills" class="hover:text-white transition">Skills</a>
-                <a href="#education" class="hover:text-white transition">Education</a>
+    <nav class="fixed w-full z-50 p-6">
+        <div class="max-w-6xl mx-auto glass p-4 rounded-2xl flex justify-between items-center px-8">
+            <span class="text-2xl font-800 tracking-tighter">S<span class="text-blue-500">P</span></span>
+            <div class="hidden md:flex gap-10 text-sm font-semibold uppercase tracking-widest text-slate-400">
+                <a href="#projects" class="hover:text-white transition">Projects</a>
+                <a href="#skills" class="hover:text-white transition">Stack</a>
+                <a href="#about" class="hover:text-white transition">Resume</a>
             </div>
-            <button onclick="toggleModal()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-xl text-sm font-bold transition shadow-lg shadow-blue-600/20">Let's Talk</button>
+            <a href="mailto:satyampatel2748@gmail.com" class="bg-blue-600 text-white px-6 py-2 rounded-xl text-sm font-bold hover:scale-105 transition active:scale-95 shadow-lg shadow-blue-900/20">Hire Me</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
-        <div data-aos="fade-down" class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest">
-            Available for New Opportunities
-        </div>
-        <h1 data-aos="fade-up" class="text-6xl md:text-9xl font-extrabold text-center leading-none mb-6">
-            Building the <span class="gradient-text text-white">Future</span> of Health Tech.
-        </h1>
-        <p data-aos="fade-up" data-aos-delay="200" class="text-xl md:text-2xl text-slate-400 text-center max-w-2xl font-light">
-            Hi, I'm <span class="text-white font-bold">Satyam Patel</span>. I specialize in 
-            <span id="typed" class="text-blue-400 font-mono"></span>
+    <header class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
+        <div class="inline-block px-4 py-1 mb-6 rounded-full glass border-blue-500/30 text-blue-400 text-xs font-bold tracking-widest uppercase">4.5+ Years Experience</div>
+        <h1 class="text-6xl md:text-9xl font-800 leading-none mb-6">Satyam <span class="gradient-text">Patel</span></h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-2xl font-light leading-relaxed">
+            Software Specialist at <span class="text-white font-semibold">eClinicalWorks</span>. Expert in Healthcare Interoperability, HL7 Standards, and End-to-End System Integrity.
         </p>
-        <div data-aos="fade-up" data-aos-delay="400" class="mt-12">
-            <a href="#work" class="group relative px-8 py-4 bg-white text-black rounded-2xl font-bold transition overflow-hidden">
-                <span class="relative z-10">Explore My Journey</span>
-            </a>
+        <div class="mt-12 flex flex-col md:flex-row gap-6">
+            <a href="#projects" class="px-10 py-4 bg-white text-black rounded-2xl font-bold hover:bg-blue-500 hover:text-white transition-all shadow-2xl">View Selected Works</a>
+            <div class="flex gap-4 items-center justify-center text-2xl px-6">
+                <a href="https://linkedin.com" target="_blank" class="hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </header>
 
-    <!-- Experience -->
-    <section id="work" class="py-32 px-6 max-w-6xl mx-auto">
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-20 text-center">Selected <span class="gradient-text">Experience</span></h2>
+    <!-- Detailed Projects Section -->
+    <section id="projects" class="py-32 px-6 max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-800 mb-20">Featured <span class="gradient-text">Projects</span></h2>
         
         <div class="grid md:grid-cols-2 gap-8">
-            <div data-aos="fade-right" class="glass-card p-10 rounded-3xl relative overflow-hidden group">
-                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-100 transition">
-                    <i class="fas fa-hospital-user text-6xl text-blue-500"></i>
-                </div>
-                <h3 class="text-blue-400 font-mono mb-2 uppercase">eClinicalWorks | 2021 - Present</h3>
-                <h4 class="text-3xl font-bold mb-4 text-white">Software Specialist</h4>
-                <p class="text-slate-400 leading-relaxed">
-                    Spearheading 100% compliant HL7 data flows and revolutionizing vaccine management systems through vending tech integration.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-bold">Interoperability</span>
-                    <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-bold">HL7</span>
-                    <span class="px-3 py-1 bg-slate-800 rounded-lg text-xs font-bold">Automation</span>
+            <!-- Project 1 -->
+            <div class="glass glass-hover p-10 rounded-[2.5rem]">
+                <div class="mono text-blue-500 text-xs mb-4">// INTEROPERABILITY</div>
+                <h3 class="text-3xl font-bold mb-4 text-white">HIE Implementation</h3>
+                <p class="text-slate-400 mb-8 leading-relaxed">Architecting interfaces enabling seamless health data exchange between providers. Ensuring 100% compliance with HL7 standards while optimizing patient care coordination.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">HL7 v2/v3</span>
+                    <span class="px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold border border-blue-500/20">Mirth Connect</span>
                 </div>
             </div>
 
-            <div data-aos="fade-left" class="glass-card p-10 rounded-3xl border-l-4 border-l-purple-500">
-                <h3 class="text-purple-400 font-mono mb-2 uppercase">Technical Skillset</h3>
-                <h4 class="text-3xl font-bold mb-6 text-white">The Tech Stack</h4>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex items-center gap-3 text-slate-300">
-                        <i class="fab fa-java text-blue-400 text-xl"></i> Java Expert
-                    </div>
-                    <div class="flex items-center gap-3 text-slate-300">
-                        <i class="fab fa-python text-yellow-400 text-xl"></i> Python
-                    </div>
-                    <div class="flex items-center gap-3 text-slate-300">
-                        <i class="fas fa-database text-pink-400 text-xl"></i> SQL/NoSQL
-                    </div>
-                    <div class="flex items-center gap-3 text-slate-300">
-                        <i class="fas fa-vial text-green-400 text-xl"></i> QA Testing
-                    </div>
+            <!-- Project 2 -->
+            <div class="glass glass-hover p-10 rounded-[2.5rem]">
+                <div class="mono text-purple-500 text-xs mb-4">// HARDWARE INTEGRATION</div>
+                <h3 class="text-3xl font-bold mb-4 text-white">Vaccine Management</h3>
+                <p class="text-slate-400 mb-8 leading-relaxed">Pioneered a smart dispensing interface for vaccine vending machines. Automated real-time inventory tracking and secure access for medical practices.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold border border-purple-500/20">API Testing</span>
+                    <span class="px-4 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-bold border border-purple-500/20">SQL Integration</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass glass-hover p-10 rounded-[2.5rem]">
+                <div class="mono text-green-500 text-xs mb-4">// SURVEILLANCE & MONITORING</div>
+                <h3 class="text-3xl font-bold mb-4 text-white">Syndromic Monitoring</h3>
+                <p class="text-slate-400 mb-8 leading-relaxed">Developed systems for early detection of disease patterns. Manage large-scale vendor onboarding and ensure system scalability across vast networks.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold border border-green-500/20">Data Analysis</span>
+                    <span class="px-4 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold border border-green-500/20">UAT</span>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="glass glass-hover p-10 rounded-[2.5rem]">
+                <div class="mono text-yellow-500 text-xs mb-4">// DATA INTEGRITY</div>
+                <h3 class="text-3xl font-bold mb-4 text-white">Immunization Data Flows</h3>
+                <p class="text-slate-400 mb-8 leading-relaxed">Proactive monitoring of high-volume data streams. Honored with the <b>All Star Award</b> for maintaining zero-critical failure deployments across multiple registries.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-bold border border-yellow-500/20">Regression</span>
+                    <span class="px-4 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-bold border border-yellow-500/20">MySQL</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education & Awards -->
-    <section id="education" class="py-20 px-6 max-w-6xl mx-auto border-t border-slate-800">
-        <div class="grid md:grid-cols-3 gap-12 text-center">
-            <div data-aos="zoom-in">
-                <i class="fas fa-graduation-cap text-4xl text-blue-500 mb-6"></i>
-                <h5 class="text-xl font-bold mb-2 text-white">B.Tech in CSE</h5>
-                <p class="text-slate-400 text-sm">Shri Ram Institute of Technology<br>7.91 CGPA</p>
+    <!-- Technical Expertise Section -->
+    <section id="skills" class="py-20 bg-slate-950/50 border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-16">
+            <div>
+                <h4 class="text-2xl font-bold mb-6">Testing Expert</h4>
+                <div class="space-y-3 text-slate-400">
+                    <p class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> Manual & Automation</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> Functional & Regression</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-check text-blue-500"></i> User Acceptance (UAT)</p>
+                </div>
             </div>
-            <div data-aos="zoom-in" data-aos-delay="200">
-                <i class="fas fa-trophy text-4xl text-yellow-500 mb-6"></i>
-                <h5 class="text-xl font-bold mb-2 text-white">All Star Award</h5>
-                <p class="text-slate-400 text-sm">Recognized for zero-failure deployments at eClinicalWorks.</p>
+            <div>
+                <h4 class="text-2xl font-bold mb-6">Tools & Stack</h4>
+                <div class="space-y-3 text-slate-400">
+                    <p class="flex items-center gap-3"><i class="fas fa-terminal text-purple-500"></i> Java, Python, JS</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-wrench text-purple-500"></i> JIRA, Postman, Mirth</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-server text-purple-500"></i> Apache Tomcat, SQL</p>
+                </div>
             </div>
-            <div data-aos="zoom-in" data-aos-delay="400">
-                <i class="fas fa-certificate text-4xl text-purple-500 mb-6"></i>
-                <h5 class="text-xl font-bold mb-2 text-white">QA Specialist</h5>
-                <p class="text-slate-400 text-sm">4.5+ years of end-to-end testing expertise.</p>
+            <div class="glass p-8 rounded-3xl">
+                <h4 class="text-2xl font-bold mb-4">Education</h4>
+                <p class="font-semibold text-white">B.Tech in CSE</p>
+                <p class="text-slate-400 text-sm">Shri Ram Institute of Technology</p>
+                <div class="mt-4 text-3xl font-bold gradient-text">7.91 CGPA</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl px-4">
-        <div class="glass-card p-10 rounded-[2rem] w-full max-w-lg relative">
-            <button onclick="toggleModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white text-3xl transition">&times;</button>
-            <h3 class="text-4xl font-extrabold mb-4 text-white">Let's Connect</h3>
-            <p class="text-slate-400 mb-8">Drop me a message to discuss healthcare tech or software testing.</p>
-            <form action="https://formspree.io" method="POST" class="space-y-4">
-                <input type="email" name="email" placeholder="Your Email Address" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:border-blue-500 outline-none">
-                <textarea name="message" placeholder="How can I help you?" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-white focus:border-blue-500 outline-none"></textarea>
-                <button type="submit" class="w-full bg-white text-black py-4 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition-all">Send Now</button>
-            </form>
+    <!-- Footer -->
+    <footer class="py-20 text-center">
+        <p class="text-slate-500 font-mono text-sm uppercase tracking-widest mb-4">Satyam Patel — 2026</p>
+        <p class="text-slate-300">Ready for the next challenge? Let's discuss.</p>
+        <div class="mt-8">
+            <a href="mailto:satyampatel2748@gmail.com" class="text-4xl hover:text-blue-500 transition mx-4"><i class="fas fa-envelope-open-text"></i></a>
         </div>
-    </div>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        new Typed('#typed', {
-            strings: ['HL7 Standards.', 'QA Engineering.', 'Software Solutions.', 'Healthcare Interoperability.'],
-            typeSpeed: 50,
-            backSpeed: 30,
-            loop: true
-        });
-
-        function toggleModal() {
-            document.getElementById('contactModal').classList.toggle('hidden');
-        }
-    </script>
 </body>
 </html>
