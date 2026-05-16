@@ -3,160 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satyam Patel | Portfolio</title>
+<title>Satyam Patel | Software Specialist</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* COOL CODER DARK THEME */
 body{
-  margin:0;
-  font-family:Segoe UI, sans-serif;
-  background:#0f172a;
-  color:#e2e8f0;
+font-family:'Plus Jakarta Sans',sans-serif;
+background: radial-gradient(circle at top,#0f172a,#020617);
+color:#e2e8f0;
 }
-
-section{padding:60px 20px;max-width:1000px;margin:auto}
-h1,h2,h3{text-align:center}
-
-.hero{
-  text-align:center;
-  padding:100px 20px;
-  background:linear-gradient(120deg,#0f172a,#020617);
+.sidebar{
+background:#020617;
+border-right:1px solid #1f2937;
+width:95px;height:100vh;position:fixed;left:0;top:0;
+display:flex;flex-direction:column;align-items:center;padding:2rem 0;
 }
-
-.typing{
-  color:#22c55e;
-  animation:blink 1s infinite alternate;
+.side-link{color:#64748b;font-size:.7rem;font-weight:800;text-transform:uppercase;margin-bottom:2rem;transition:.3s;}
+.side-link:hover{color:#38bdf8;}
+.glass{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+transition:.4s;
 }
-@keyframes blink{from{opacity:1}to{opacity:.4}}
-
-.skills span{
-  background:#1e293b;
-  padding:8px 15px;
-  margin:5px;
-  border-radius:20px;
-  display:inline-block;
+.glass:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(56,189,248,.2);}
+.gradient-text{
+background:linear-gradient(90deg,#38bdf8,#a78bfa);
+-webkit-background-clip:text;color:transparent;
 }
-
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.project-card{
-  background:#1e293b;
-  padding:20px;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.3s;
-}
-.project-card:hover{transform:scale(1.05);background:#334155}
-
-.modal{
-  display:none;
-  position:fixed;
-  top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,.85);
-  justify-content:center;align-items:center;
-}
-.modal-content{
-  background:#020617;
-  padding:40px;
-  max-width:700px;
-  border-radius:12px;
-}
-.close{float:right;font-size:28px;cursor:pointer}
-.impact{color:#22c55e;font-weight:bold;margin-top:15px}
-
-footer{text-align:center;padding:20px;background:#020617}
 </style>
 </head>
 
-<body>
+<body class="pl-[95px]">
 
-<header class="hero">
-<h1>Satyam Patel</h1>
-<h2 class="typing">Software Engineer • HL7 Interface Specialist • QA Expert</h2>
-<p>Building reliable healthcare integrations and delivering zero-critical deployments.</p>
-</header>
+<!-- SIDEBAR -->
+<aside class="sidebar">
+<div class="mb-10 w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center font-bold text-black">SP</div>
+<a href="#about" class="side-link">ABOUT</a>
+<a href="#skills" class="side-link">SKILLS</a>
+<a href="#experience" class="side-link">WORK</a>
+<a href="#projects" class="side-link">PROJECTS</a>
+<a href="#contact" class="side-link">CONTACT</a>
+</aside>
 
-<section>
-<h2>Technical Skills</h2>
-<div class="skills">
-<span>Manual Testing</span><span>HL7</span><span>Java</span><span>Python</span>
-<span>JavaScript</span><span>MySQL</span><span>Postman</span><span>Tomcat</span>
+<main class="max-w-6xl mx-auto p-6 md:p-12">
+
+<!-- HERO -->
+<section id="about" class="text-center mb-24">
+<h1 class="text-5xl font-extrabold mb-4 gradient-text">Satyam Patel</h1>
+<h2 class="text-xl text-slate-400 mb-6"><span id="typing"></span></h2>
+
+<p class="max-w-3xl mx-auto text-slate-400 leading-relaxed">
+Experienced software specialist with a proven track record at eClinicalWorks, adept in implementing interfaces and driving software testing initiatives. Skilled in HL7 standards, manual & functional testing, Java, Python, JavaScript, MySQL & MSSQL. Passionate about improving healthcare interoperability and software quality.
+</p>
+
+<div class="mt-8 flex justify-center gap-4">
+<a href="Resume.pdf" class="bg-gradient-to-r from-cyan-400 to-purple-500 text-black px-6 py-3 rounded-xl font-bold">Download Resume</a>
+<a href="mailto:satyampatel2748@gmail.com" class="border border-cyan-400 px-6 py-3 rounded-xl">Hire Me</a>
+</div>
+
+<p class="mt-6 text-slate-500">📞 +91 7582829394 • Ahmedabad, India</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="mb-24">
+<h2 class="text-3xl font-bold mb-10 gradient-text">Technical Skills</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="glass p-6">Software Development, Manual Testing, Functional Testing, QA</div>
+<div class="glass p-6">HL7, Apache Tomcat, JSP, JavaScript</div>
+<div class="glass p-6">MySQL, MSSQL, Java, Python, C, C++</div>
+<div class="glass p-6">Communication, Collaboration, Client Support</div>
 </div>
 </section>
 
-<section>
-<h2>Experience</h2>
-<h3>eClinicalWorks (2021-Present)</h3>
-<ul>
-<li>Deploy complex healthcare interfaces</li>
-<li>Monitor healthcare data reliability</li>
-<li>Lead deployments & client support</li>
+<!-- EXPERIENCE -->
+<section id="experience" class="mb-24">
+<h2 class="text-3xl font-bold mb-10 gradient-text">Work Experience</h2>
+<div class="glass p-8">
+<h3 class="text-xl font-bold">eClinicalWorks Pvt Ltd (2021–Present)</h3>
+<ul class="mt-4 space-y-2 text-slate-400">
+<li>✔ Deploy healthcare interfaces between providers</li>
+<li>✔ Monitor healthcare data for compliance</li>
+<li>✔ Manage software updates & deployments</li>
+<li>✔ Provide client support & training</li>
+<li>✔ Collaborate with Dev & QA teams</li>
 </ul>
-</section>
-
-<section id="projects">
-<h2>Projects</h2>
-<p style="text-align:center">Click any project to see my contribution</p>
-
-<div class="projects-grid">
-<div class="project-card" onclick="openProject(1)">
-<h3>Immunization Interface</h3><p>HL7 Integration</p></div>
-
-<div class="project-card" onclick="openProject(2)">
-<h3>Data Monitoring</h3><p>Healthcare Data Streams</p></div>
-
-<div class="project-card" onclick="openProject(3)">
-<h3>Syndromic Surveillance</h3><p>Disease Detection</p></div>
-
-<div class="project-card" onclick="openProject(4)">
-<h3>Vaccine System</h3><p>Vending Machine Integration</p></div>
-
-<div class="project-card" onclick="openProject(5)">
-<h3>Health Info Exchange</h3><p>Interoperability</p></div>
 </div>
 </section>
 
-<div id="projectModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeProject()">&times;</span>
-<div id="projectDetails"></div>
+<!-- PROJECTS -->
+<section id="projects" class="mb-24">
+<h2 class="text-3xl font-bold mb-10 gradient-text">Projects</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="glass p-6">Immunization Interface Implementation</div>
+<div class="glass p-6">Syndromic Surveillance Monitoring</div>
+<div class="glass p-6">Vaccine Management System</div>
+<div class="glass p-6">Health Information Exchange</div>
 </div>
-</div>
+</section>
 
-<footer>© 2026 Satyam Patel</footer>
+<!-- CONTACT -->
+<section id="contact" class="text-center mb-24">
+<h2 class="text-3xl font-bold mb-6 gradient-text">Contact</h2>
+<div class="flex justify-center gap-6 text-3xl">
+<a href="https://github.com/satyampatel248"><i class="fab fa-github"></i></a>
+<a href="https://linkedin.com/in/satyam-patel-60bbb0221"><i class="fab fa-linkedin text-cyan-400"></i></a>
+<a href="mailto:satyampatel2748@gmail.com"><i class="fas fa-envelope text-purple-400"></i></a>
+</div>
+</section>
+
+</main>
+
+<footer class="py-10 text-center text-slate-600">© 2026 Satyam Patel</footer>
 
 <script>
-function openProject(id){
-const details={
-1:`<h2>Immunization Interface</h2>
-<ul><li>Designed HL7 workflows</li><li>Performed E2E testing</li></ul>
-<p class="impact">🚀 Improved vaccine data exchange</p>`,
-
-2:`<h2>Data Monitoring</h2>
-<ul><li>Monitored healthcare streams</li></ul>
-<p class="impact">✨ Improved reliability</p>`,
-
-3:`<h2>Syndromic Surveillance</h2>
-<ul><li>Built real-time interfaces</li></ul>
-<p class="impact">🌍 Early disease detection</p>`,
-
-4:`<h2>Vaccine Management</h2>
-<ul><li>Integrated vending machines</li></ul>
-<p class="impact">💡 Next-gen vaccine access</p>`,
-
-5:`<h2>Health Information Exchange</h2>
-<ul><li>Enabled secure data sharing</li></ul>
-<p class="impact">🏥 Better patient care</p>`
-};
-
-document.getElementById("projectDetails").innerHTML=details[id];
-document.getElementById("projectModal").style.display="flex";
-}
-function closeProject(){document.getElementById("projectModal").style.display="none";}
+const text=["HL7 Specialist","Software Tester","Interface Engineer","Healthcare Tech Expert"];
+let count=0,index=0,currentText='',letter='';
+(function type(){
+if(count===text.length){count=0;}
+currentText=text[count];
+letter=currentText.slice(0,++index);
+document.getElementById('typing').textContent=letter;
+if(letter.length===currentText.length){count++;index=0;setTimeout(type,1500);}
+else{setTimeout(type,80);}
+})();
 </script>
 
 </body>
