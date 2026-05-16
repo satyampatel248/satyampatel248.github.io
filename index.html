@@ -15,14 +15,45 @@ font-family:'Plus Jakarta Sans',sans-serif;
 background: radial-gradient(circle at top,#0f172a,#020617);
 color:#e2e8f0;
 }
+
+/* ⭐ SIDEBAR HOVER EXPAND FEATURE */
 .sidebar{
 background:#020617;
 border-right:1px solid #1f2937;
-width:95px;height:100vh;position:fixed;left:0;top:0;
-display:flex;flex-direction:column;align-items:center;padding:2rem 0;
+width:95px;
+height:100vh;
+position:fixed;
+left:0;top:0;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+padding:2rem 0;
+transition:0.4s;
+overflow:hidden;
 }
-.side-link{color:#64748b;font-size:.7rem;font-weight:800;text-transform:uppercase;margin-bottom:2rem;transition:.3s;}
+.sidebar:hover{width:220px;}
+
+.side-link{
+color:#64748b;
+font-size:.75rem;
+font-weight:800;
+text-transform:uppercase;
+margin-bottom:2rem;
+transition:.3s;
+white-space:nowrap;
+opacity:0;
+transform:translateX(-20px);
+padding-left:20px;
+display:flex;
+align-items:center;
+gap:14px;
+}
+.sidebar:hover .side-link{
+opacity:1;
+transform:translateX(0);
+}
 .side-link:hover{color:#38bdf8;}
+
 .glass{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.08);
@@ -30,6 +61,7 @@ border-radius:20px;
 transition:.4s;
 }
 .glass:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(56,189,248,.2);}
+
 .gradient-text{
 background:linear-gradient(90deg,#38bdf8,#a78bfa);
 -webkit-background-clip:text;color:transparent;
@@ -41,12 +73,13 @@ background:linear-gradient(90deg,#38bdf8,#a78bfa);
 
 <!-- SIDEBAR -->
 <aside class="sidebar">
-<div class="mb-10 w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center font-bold text-black">SP</div>
-<a href="#about" class="side-link">ABOUT</a>
-<a href="#skills" class="side-link">SKILLS</a>
-<a href="#experience" class="side-link">WORK</a>
-<a href="#projects" class="side-link">PROJECTS</a>
-<a href="#contact" class="side-link">CONTACT</a>
+<div class="mb-10 w-10 h-10 ml-6 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center font-bold text-black">SP</div>
+
+<a href="#about" class="side-link"><i class="fas fa-user text-lg"></i> ABOUT</a>
+<a href="#skills" class="side-link"><i class="fas fa-code text-lg"></i> SKILLS</a>
+<a href="#experience" class="side-link"><i class="fas fa-briefcase text-lg"></i> WORK</a>
+<a href="#projects" class="side-link"><i class="fas fa-rocket text-lg"></i> PROJECTS</a>
+<a href="#contact" class="side-link"><i class="fas fa-envelope text-lg"></i> CONTACT</a>
 </aside>
 
 <main class="max-w-6xl mx-auto p-6 md:p-12">
