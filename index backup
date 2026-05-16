@@ -15,14 +15,42 @@ font-family:'Plus Jakarta Sans',sans-serif;
 background: radial-gradient(circle at top,#0f172a,#020617);
 color:#e2e8f0;
 }
+
+/* DESKTOP SIDEBAR */
 .sidebar{
 background:#020617;
 border-right:1px solid #1f2937;
-width:95px;height:100vh;position:fixed;left:0;top:0;
-display:flex;flex-direction:column;align-items:center;padding:2rem 0;
+width:95px;
+height:100vh;
+position:fixed;
+left:0;top:0;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+padding:2rem 0;
+transition:0.4s;
+overflow:hidden;
 }
-.side-link{color:#64748b;font-size:.7rem;font-weight:800;text-transform:uppercase;margin-bottom:2rem;transition:.3s;}
+.sidebar:hover{width:220px;}
+
+.side-link{
+color:#64748b;
+font-size:.75rem;
+font-weight:800;
+text-transform:uppercase;
+margin-bottom:2rem;
+transition:.3s;
+white-space:nowrap;
+opacity:0;
+transform:translateX(-20px);
+padding-left:20px;
+display:flex;
+align-items:center;
+gap:14px;
+}
+.sidebar:hover .side-link{opacity:1;transform:translateX(0);}
 .side-link:hover{color:#38bdf8;}
+
 .glass{
 background:rgba(255,255,255,.04);
 border:1px solid rgba(255,255,255,.08);
@@ -30,6 +58,7 @@ border-radius:20px;
 transition:.4s;
 }
 .glass:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(56,189,248,.2);}
+
 .gradient-text{
 background:linear-gradient(90deg,#38bdf8,#a78bfa);
 -webkit-background-clip:text;color:transparent;
@@ -37,75 +66,84 @@ background:linear-gradient(90deg,#38bdf8,#a78bfa);
 </style>
 </head>
 
-<body class="pl-[95px]">
+<body class="md:pl-[95px]">
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-<div class="mb-10 w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center font-bold text-black">SP</div>
-<a href="#about" class="side-link">ABOUT</a>
-<a href="#skills" class="side-link">SKILLS</a>
-<a href="#experience" class="side-link">WORK</a>
-<a href="#projects" class="side-link">PROJECTS</a>
-<a href="#contact" class="side-link">CONTACT</a>
+<!-- MOBILE NAVBAR -->
+<div class="md:hidden fixed top-0 left-0 w-full bg-[#020617] z-50 border-b border-slate-800 flex justify-between items-center px-4 py-3">
+<div class="font-bold text-cyan-400">Satyam Patel</div>
+<button onclick="toggleMenu()" class="text-2xl"><i class="fas fa-bars"></i></button>
+</div>
+
+<!-- SIDEBAR DESKTOP -->
+<aside class="sidebar hidden md:flex">
+<div class="mb-10 w-10 h-10 ml-6 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-xl flex items-center justify-center font-bold text-black">SP</div>
+<a href="#about" class="side-link"><i class="fas fa-user"></i> ABOUT</a>
+<a href="#skills" class="side-link"><i class="fas fa-code"></i> SKILLS</a>
+<a href="#experience" class="side-link"><i class="fas fa-briefcase"></i> WORK</a>
+<a href="#projects" class="side-link"><i class="fas fa-rocket"></i> PROJECTS</a>
+<a href="#contact" class="side-link"><i class="fas fa-envelope"></i> CONTACT</a>
 </aside>
 
-<main class="max-w-6xl mx-auto p-6 md:p-12">
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden fixed inset-0 bg-black/80 z-40 md:hidden">
+<div class="bg-[#020617] w-64 h-full p-6 space-y-6 text-lg">
+<a href="#about" onclick="toggleMenu()">ABOUT</a><br>
+<a href="#skills" onclick="toggleMenu()">SKILLS</a><br>
+<a href="#experience" onclick="toggleMenu()">WORK</a><br>
+<a href="#projects" onclick="toggleMenu()">PROJECTS</a><br>
+<a href="#contact" onclick="toggleMenu()">CONTACT</a>
+</div>
+</div>
 
-<!-- HERO -->
+<main class="max-w-6xl mx-auto p-6 md:p-12 mt-16 md:mt-0">
+
 <section id="about" class="text-center mb-24">
 <h1 class="text-5xl font-extrabold mb-4 gradient-text">Satyam Patel</h1>
 <h2 class="text-xl text-slate-400 mb-6"><span id="typing"></span></h2>
 
 <p class="max-w-3xl mx-auto text-slate-400 leading-relaxed">
-Experienced software specialist with a proven track record at eClinicalWorks, adept in implementing interfaces and driving software testing initiatives. Skilled in HL7 standards, manual & functional testing, Java, Python, JavaScript, MySQL & MSSQL. Passionate about improving healthcare interoperability and software quality.
+Experienced software specialist with a proven track record at eClinicalWorks, adept in implementing interfaces and driving software testing initiatives. Skilled in HL7 standards, manual & functional testing, Java, Python, JavaScript, MySQL & MSSQL.
 </p>
 
 <div class="mt-8 flex justify-center gap-4">
 <a href="Resume.pdf" class="bg-gradient-to-r from-cyan-400 to-purple-500 text-black px-6 py-3 rounded-xl font-bold">Download Resume</a>
 <a href="mailto:satyampatel2748@gmail.com" class="border border-cyan-400 px-6 py-3 rounded-xl">Hire Me</a>
 </div>
-
-<p class="mt-6 text-slate-500">📞 +91 7582829394 • Ahmedabad, India</p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="mb-24">
 <h2 class="text-3xl font-bold mb-10 gradient-text">Technical Skills</h2>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="glass p-6">Software Development, Manual Testing, Functional Testing, QA</div>
-<div class="glass p-6">HL7, Apache Tomcat, JSP, JavaScript</div>
-<div class="glass p-6">MySQL, MSSQL, Java, Python, C, C++</div>
-<div class="glass p-6">Communication, Collaboration, Client Support</div>
+<div class="glass p-6">Software Development & Testing</div>
+<div class="glass p-6">HL7, Apache Tomcat, JSP</div>
+<div class="glass p-6">MySQL, MSSQL, Java, Python</div>
+<div class="glass p-6">Communication & Client Support</div>
 </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="mb-24">
 <h2 class="text-3xl font-bold mb-10 gradient-text">Work Experience</h2>
 <div class="glass p-8">
 <h3 class="text-xl font-bold">eClinicalWorks Pvt Ltd (2021–Present)</h3>
 <ul class="mt-4 space-y-2 text-slate-400">
-<li>✔ Deploy healthcare interfaces between providers</li>
-<li>✔ Monitor healthcare data for compliance</li>
-<li>✔ Manage software updates & deployments</li>
-<li>✔ Provide client support & training</li>
-<li>✔ Collaborate with Dev & QA teams</li>
+<li>✔ Deploy healthcare interfaces</li>
+<li>✔ Monitor healthcare data</li>
+<li>✔ Manage software deployments</li>
+<li>✔ Provide client training</li>
 </ul>
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="mb-24">
 <h2 class="text-3xl font-bold mb-10 gradient-text">Projects</h2>
 <div class="grid md:grid-cols-2 gap-6">
-<div class="glass p-6">Immunization Interface Implementation</div>
-<div class="glass p-6">Syndromic Surveillance Monitoring</div>
-<div class="glass p-6">Vaccine Management System</div>
-<div class="glass p-6">Health Information Exchange</div>
+<div class="glass p-6">Immunization Interface</div>
+<div class="glass p-6">Syndromic Surveillance</div>
+<div class="glass p-6">Vaccine Management</div>
+<div class="glass p-6">Health Info Exchange</div>
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="text-center mb-24">
 <h2 class="text-3xl font-bold mb-6 gradient-text">Contact</h2>
 <div class="flex justify-center gap-6 text-3xl">
@@ -120,6 +158,10 @@ Experienced software specialist with a proven track record at eClinicalWorks, ad
 <footer class="py-10 text-center text-slate-600">© 2026 Satyam Patel</footer>
 
 <script>
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("hidden");
+}
+
 const text=["HL7 Specialist","Software Tester","Interface Engineer","Healthcare Tech Expert"];
 let count=0,index=0,currentText='',letter='';
 (function type(){
